@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.SearchableComboBox?>
+
+<AnchorPane prefHeight="650.0" prefWidth="550.0" stylesheets="@../../../styles/menu.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.learning.school.MenuAdminController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="650.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="35.0">
+               <children>
+                  <HBox fx:id="hbox" layoutX="10.0" spacing="2.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                      <Button fx:id="btnDelete" mnemonicParsing="false" onMouseClicked="#btnDeleteClicked" prefHeight="25.0" prefWidth="20.0" style="-fx-background-color: transparent;" styleClass="buttonDelete" stylesheets="@../../../styles/menu.css">
+                           <tooltip>
+                              <Tooltip text="Select this tool to delete a row (Ctrl+ D)" />
+                           </tooltip>
+                        </Button>
+                        <Button fx:id="btnRefresh" mnemonicParsing="false" onMouseClicked="#btnRefreshClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;" styleClass="buttonRefresh" stylesheets="@../../../styles/menu.css">
+                           <tooltip>
+                              <Tooltip text="Click to refresh(CTRL + R)" />
+                           </tooltip>
+                        </Button>
+                        <Button fx:id="btnCopy" mnemonicParsing="false" onMouseClicked="#btnCopyClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;" styleClass="buttonCopy" stylesheets="@../../../styles/menu.css">
+                           <tooltip>
+                              <Tooltip text="Click to copy selected rows (CTRL + C)" />
+                           </tooltip>
+                        </Button>
+                        <Button fx:id="btnEdit" mnemonicParsing="false" onMouseClicked="#btnChangeClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;" styleClass="buttonEdit" stylesheets="@../../../styles/menu.css">
+                           <tooltip>
+                              <Tooltip text="Select this tool to edit values(CTRL + E)" />
+                           </tooltip>
+                        </Button>
+                        <Button fx:id="btnAdd" mnemonicParsing="false" onMouseClicked="#btnAddClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;" styleClass="buttonAdd" stylesheets="@../../../styles/menu.css">
+                           <tooltip>
+                              <Tooltip text="Click to add new row(CTRL + N)" />
+                           </tooltip>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lUser" alignment="CENTER_RIGHT" layoutX="905.0" layoutY="-4.0" prefHeight="25.0" prefWidth="258.0" text="Admin: " AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+               </children>
+            </AnchorPane>
+            <TabPane fx:id="mainTabPane" onMouseClicked="#btnMenuClicked" prefHeight="650.0" prefWidth="550.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Schedule">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="952.0">
+                           <children>
+                              <TableView fx:id="tbSchedule" editable="true" layoutX="33.0" layoutY="106.0" prefHeight="520.0" prefWidth="500.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+                                <columns>
+                                    <TableColumn fx:id="scheduleClass" prefWidth="75.0" text="Class" />
+                                    <TableColumn fx:id="scheduleSubject" prefWidth="89.71432495117188" text="Subject" />
+                                    <TableColumn fx:id="scheduleTeacher" prefWidth="134.8571014404297" text="Teacher" />
+                                  <TableColumn fx:id="scheduleDay" prefWidth="71.42860412597656" text="Day" />
+                                  <TableColumn fx:id="scheduleStart" prefWidth="98.0" text="Beginning" />
+                                    <TableColumn fx:id="scheduleEnd" prefWidth="105.0" text="End" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="tfSchedule" layoutX="25.0" layoutY="74.0" prefHeight="25.0" prefWidth="500.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Teachers">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <TableView fx:id="tbTeacher" editable="true" layoutX="24.0" layoutY="123.0" prefHeight="0.0" prefWidth="386.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+                                <columns>
+                                  <TableColumn fx:id="teacherName" prefWidth="337.7142810821533" text="Name" />
+                                  <TableColumn fx:id="teacherPhone" prefWidth="162.85714721679688" sortable="false" text="Phone" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="tfTeacher" layoutX="24.0" layoutY="91.0" prefHeight="25.0" prefWidth="386.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Students">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <TableView fx:id="tbStudent" editable="true" layoutX="31.0" layoutY="96.0" prefHeight="0.0" prefWidth="430.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+                                <columns>
+                                  <TableColumn fx:id="studentName" prefWidth="185.0" text="Name" />
+                                    <TableColumn fx:id="studentPhone" prefWidth="124.00004577636719" text="Student`s phone" />
+                                    <TableColumn fx:id="studentParentPhone" prefWidth="120.5714111328125" text="Parent`s phone" />
+                                    <TableColumn fx:id="studentClass" minWidth="0.0" prefWidth="70.28573608398438" text="Class" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="tfStudent" layoutX="25.0" layoutY="55.0" prefHeight="25.0" prefWidth="430.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Events">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <TableView fx:id="tbEvent" editable="true" layoutX="41.0" layoutY="117.0" prefHeight="0.0" prefWidth="429.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+                                <columns>
+                                  <TableColumn fx:id="eventDescription" prefWidth="269.71422958374023" text="Description" />
+                                    <TableColumn fx:id="eventTime" minWidth="0.0" prefWidth="117.14288330078125" text="Time" />
+                                  <TableColumn fx:id="eventDate" minWidth="0.0" prefWidth="113.71426391601562" text="Date" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="tfEvent" layoutX="41.0" layoutY="77.0" prefHeight="25.0" prefWidth="430.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Logs">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tbLog" editable="true" layoutX="41.0" layoutY="107.0" prefHeight="0.0" prefWidth="387.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+                                 <columns>
+                                    <TableColumn fx:id="logUser" prefWidth="94.85711860656738" text="User" />
+                                    <TableColumn fx:id="logPrivilege" prefWidth="82.2857666015625" text="Privelege" />
+                                    <TableColumn fx:id="logAction" prefWidth="165.71421813964844" text="Action" />
+                                    <TableColumn fx:id="logDate" prefWidth="84.5714111328125" text="Date" />
+                                    <TableColumn fx:id="logTime" prefWidth="80.57144165039062" text="Time" />
+                                 </columns>
+                              </TableView>
+                              <TextField fx:id="tfLog" layoutX="41.0" layoutY="75.0" prefHeight="25.0" prefWidth="386.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Users">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tbUser" editable="true" layoutX="41.0" layoutY="107.0" prefHeight="520.0" prefWidth="500.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+                                 <columns>
+                                    <TableColumn fx:id="userLogin" prefWidth="104.57147407531738" text="Login" />
+                                    <TableColumn fx:id="userPrivilege" prefWidth="94.857177734375" text="Privelege" />
+                                    <TableColumn fx:id="userName" prefWidth="200.57139587402344" text="Name" />
+                                    <TableColumn fx:id="userPassword" minWidth="0.0" prefWidth="100.00009155273438" text="Password" />
+                                 </columns>
+                              </TableView>
+                              <TextField fx:id="tfUser" layoutX="41.0" layoutY="75.0" prefHeight="25.0" prefWidth="386.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Queries">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <ScrollPane layoutX="114.0" layoutY="63.0" prefHeight="75.0" prefWidth="501.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0">
+                                 <content>
+                                    <Accordion prefHeight="724.0" prefWidth="499.0">
+                                      <panes>
+                                        <TitledPane animated="false" text="Find students by class teacher">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="219.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Select teacher:" />
+                                                            <SearchableComboBox fx:id="q1Teacher" onAction="#q1Selected" prefHeight="25.0" prefWidth="282.0" />
+                                                            <TableView fx:id="q1Student" editable="true" prefHeight="153.0" prefWidth="469.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q1Name" prefWidth="138.8571901321411" text="Name" />
+                                                                  <TableColumn fx:id="q1Phone" prefWidth="170.8571014404297" text="Student`s phone" />
+                                                                  <TableColumn fx:id="q1PPhone" prefWidth="157.14283970424106" text="Parent`s phone" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                        <TitledPane animated="false" text="Find schedule on specific day">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="7.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Select day:" />
+                                                            <ComboBox fx:id="q2ComboDay" onAction="#q2Selected" prefHeight="25.0" prefWidth="179.0" />
+                                                            <TableView fx:id="q2Schedule" editable="true" prefHeight="520.0" prefWidth="500.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q2Class" prefWidth="75.0" text="Class" />
+                                                                  <TableColumn fx:id="q2Subj" prefWidth="89.71432495117188" text="Subject" />
+                                                                  <TableColumn fx:id="q2Teacher" prefWidth="134.8571014404297" text="Teacher" />
+                                                                  <TableColumn fx:id="q2Day" prefWidth="71.42860412597656" text="Day" />
+                                                                  <TableColumn fx:id="q2Start" prefWidth="98.0" text="Beginning" />
+                                                                  <TableColumn fx:id="q2End" prefWidth="105.0" text="End" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                        <TitledPane animated="false" text="Find classes by specific letter">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="13.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Input letter:" />
+                                                            <HBox>
+                                                               <children>
+                                                                  <TextField fx:id="q3Letter" prefHeight="25.0" prefWidth="372.0" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q3Find" text="Find" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TableView fx:id="q3Class" editable="true" prefHeight="142.0" prefWidth="403.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q3CLNum" prefWidth="100.0" text="Class" />
+                                                                  <TableColumn fx:id="q3Teacher" prefWidth="367.42855290004184" text="Teacher" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                          <TitledPane animated="false" text="Find event by specific words">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="7.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Input words:" />
+                                                            <HBox>
+                                                               <children>
+                                                                  <TextField fx:id="q4Word" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q4Find" text="Find" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TableView fx:id="q4Event" editable="true" prefHeight="171.0" prefWidth="469.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q4Desc" prefWidth="218.85705435276031" text="Description" />
+                                                                  <TableColumn fx:id="q4Time" minWidth="0.0" prefWidth="128.0" text="Time" />
+                                                                  <TableColumn fx:id="q4Date" minWidth="0.0" prefWidth="120.5714111328125" text="Date" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Find event by specific day interval">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="9.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Input date1:                                 Input date2:  " />
+                                                            <HBox>
+                                                               <children>
+                                                                  <DatePicker fx:id="q5Date1" />
+                                                                  <DatePicker fx:id="q5Date2" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q5Find" text="Find" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TableView fx:id="q5Event" editable="true" prefHeight="171.0" prefWidth="469.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q5Desc" prefWidth="218.85705435276031" text="Description" />
+                                                                  <TableColumn fx:id="q5Time" minWidth="0.0" prefWidth="128.0" text="Time" />
+                                                                  <TableColumn fx:id="q5Date" minWidth="0.0" prefWidth="120.5714111328125" text="Date" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Find teacher who has been assigned on attestation">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="8.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Input date1:                                 Input date2:  " />
+                                                            <HBox>
+                                                               <children>
+                                                                  <DatePicker fx:id="q6Date1" />
+                                                                  <DatePicker fx:id="q6Date2" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q6Find" text="Find" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TableView fx:id="q6Event" editable="true" prefHeight="171.0" prefWidth="469.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q6Name" prefWidth="218.85705435276031" text="Name" />
+                                                                  <TableColumn fx:id="q6TSubj" minWidth="0.0" prefWidth="128.0" text="Subject" />
+                                                                  <TableColumn fx:id="q6Date" minWidth="0.0" prefWidth="120.5714111328125" text="Date" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Find amount of events on specific day interval">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="11.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Input date1:                                 Input date2:  " />
+                                                            <HBox>
+                                                               <children>
+                                                                  <DatePicker fx:id="q7Date1" />
+                                                                  <DatePicker fx:id="q7Date2" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q7Find" text="Find" />
+                                                               </children>
+                                                            </HBox>
+                                                            <Label fx:id="q7Label" text="Amount = " />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" prefHeight="803.0" prefWidth="499.0" text="Find amount of teachers for specified speciality and category">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="19.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Input speciality:                            Input category:" />
+                                                            <HBox>
+                                                               <children>
+                                                                  <ComboBox fx:id="q8Spec" prefHeight="25.0" prefWidth="174.0" />
+                                                                  <ComboBox fx:id="q8Category" prefWidth="150.0" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q8Find" text="Find" />
+                                                               </children>
+                                                            </HBox>
+                                                            <Label fx:id="q8Label" text="Amount = " />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Average degree among classes on specific subject">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="17.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Input subject:" />
+                                                            <TextField fx:id="q9Subject" />
+                                                            <TableView fx:id="q9Subj" editable="true" maxWidth="-Infinity" prefHeight="142.0" prefWidth="157.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q9Class" prefWidth="78.85717260837555" text="Class" />
+                                                                  <TableColumn fx:id="q9Avg" prefWidth="74.28570556640625" text="Average" />
+                                                               </columns>
+                                                            </TableView>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q9Find" text="Find" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q9Print" text="Print" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Amount of students among classes">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="19.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <TableView fx:id="q10Table" editable="true" maxWidth="-Infinity" prefHeight="142.0" prefWidth="157.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q10Class" prefWidth="78.85717260837555" text="Class" />
+                                                                  <TableColumn fx:id="q10Amount" prefWidth="74.28570556640625" text="Amount" />
+                                                               </columns>
+                                                            </TableView>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q10Find" text="Find" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q10Print" text="Print" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Student with highest average degree">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="19.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Select subject:                      Select class:" />
+                                                            <HBox>
+                                                               <children>
+                                                                  <ComboBox fx:id="q11Subj" prefWidth="150.0" />
+                                                                  <ComboBox fx:id="q11Class" prefWidth="150.0" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q11Find" text="Find" />
+                                                               </children>
+                                                            </HBox>
+                                                            <TableView fx:id="q11Table" editable="true" maxWidth="-Infinity" prefHeight="142.0" prefWidth="157.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q11Name" prefWidth="78.85717260837555" text="Class" />
+                                                                  <TableColumn fx:id="q11Average" prefWidth="74.28570556640625" text="Average" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" onMouseClicked="#q12Find" text="Find the busiest teacher">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="23.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label fx:id="q12Label" text="The busiest teacher:" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Find the best student for each class">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="12.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <TableView fx:id="q13Table" editable="true" maxWidth="-Infinity" prefHeight="142.0" prefWidth="229.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q13Class" prefWidth="78.85717260837555" text="Class" />
+                                                                  <TableColumn fx:id="q13Name" prefWidth="74.28570556640625" text="Name" />
+                                                                  <TableColumn fx:id="q13Average" prefWidth="74.28570556640625" text="Average" />
+                                                               </columns>
+                                                            </TableView>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q13Find" text="Find" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q13Print" text="Print" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="The most experienced teacher for each speciality">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="20.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <TableView fx:id="q14Table" editable="true" maxWidth="-Infinity" prefHeight="142.0" prefWidth="229.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q14Subject" prefWidth="78.85717260837555" text="Subject" />
+                                                                  <TableColumn fx:id="q14Name" prefWidth="74.28570556640625" text="Name" />
+                                                                  <TableColumn fx:id="q14Category" prefWidth="74.28570556640625" text="Category" />
+                                                               </columns>
+                                                            </TableView>
+                                                            <HBox>
+                                                               <children>
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q14Find" text="Find" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q14Print" text="Print" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Find students who was abscent:">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="29.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Select day:" />
+                                                            <DatePicker fx:id="q15Date" onAction="#q15Selected" prefHeight="25.0" prefWidth="262.0" />
+                                                            <TableView fx:id="q15Table" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="163.0" prefWidth="261.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q15Name" prefWidth="260.00001449244365" text="Name" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" onMouseClicked="#q16Find" text="Classes that have not been assigned on events this week:">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="11.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <TableView fx:id="q16Table" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="163.0" prefWidth="91.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q16Class" prefWidth="90.28572877815792" text="Class" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Distribute students of the specific class on performance">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="27.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Select class:" />
+                                                            <ComboBox fx:id="q17Class" onAction="#q17Selected" prefWidth="150.0" />
+                                                            <TableView fx:id="q17Table" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="163.0" prefWidth="299.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q17Name" prefWidth="127.42859137058258" text="Name" />
+                                                                  <TableColumn fx:id="q17Avg" prefWidth="63.42852783203125" text="Average" />
+                                                                  <TableColumn fx:id="q17Perf" prefWidth="107.42866516113281" text="Performance" />
+                                                               </columns>
+                                                            </TableView>
+                                                            <Button mnemonicParsing="false" onMouseClicked="#q17Print" text="Print" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" onMouseClicked="#q18Find" text="Distribute teachers on attestation category amount">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="11.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <TableView fx:id="q18Table" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="163.0" prefWidth="299.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="q18Name" prefWidth="127.42859137058258" text="Name" />
+                                                                  <TableColumn fx:id="q18Amount" prefWidth="63.42852783203125" text="Amount" />
+                                                                  <TableColumn fx:id="q18Exp" prefWidth="107.42866516113281" text="Experience" />
+                                                               </columns>
+                                                            </TableView>
+                                                            <Button mnemonicParsing="false" onMouseClicked="#q18Print" text="Print" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Update attestation">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="6.0" prefWidth="498.0">
+                                                   <children>
+                                                      <VBox layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Select teacher:                      Select speciality:" />
+                                                            <HBox>
+                                                               <children>
+                                                                  <SearchableComboBox fx:id="q19Teacher" onAction="#selectedQ19" prefHeight="25.0" prefWidth="150.0" />
+                                                                  <ComboBox fx:id="q19Speciality" prefWidth="150.0" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q19Update" text="Update" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane animated="false" text="Update grade">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0">
+                                                   <children>
+                                                      <VBox layoutX="14.0" layoutY="14.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                         <children>
+                                                            <Label text="Select student:                 Select subject:                 Select date:        Input grade:" />
+                                                            <HBox>
+                                                               <children>
+                                                                  <SearchableComboBox fx:id="q20Student" prefHeight="25.0" prefWidth="150.0" />
+                                                                  <SearchableComboBox fx:id="q20Subj" prefHeight="25.0" prefWidth="150.0" />
+                                                                  <DatePicker fx:id="q20Date" prefHeight="25.0" prefWidth="99.0" />
+                                                                  <TextField fx:id="q20Grade" prefHeight="25.0" prefWidth="78.0" />
+                                                                  <Button mnemonicParsing="false" onMouseClicked="#q20Update" prefHeight="25.0" prefWidth="73.0" text="Update" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                      </panes>
+                                    </Accordion>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

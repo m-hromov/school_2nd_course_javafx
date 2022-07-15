@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="650.0" prefWidth="550.0" stylesheets="@../../../styles/menu.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.learning.school.MenuStudentController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="650.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="35.0">
+               <children>
+                  <Label fx:id="lUser" alignment="CENTER_RIGHT" layoutX="905.0" layoutY="-4.0" prefHeight="25.0" prefWidth="499.0" text="Admin: " AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+               </children>
+            </AnchorPane>
+            <TabPane fx:id="mainTabPane" prefHeight="650.0" prefWidth="550.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Schedule">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="952.0">
+                           <children>
+                              <TableView fx:id="tbSchedule" editable="true" layoutX="33.0" layoutY="106.0" prefHeight="520.0" prefWidth="500.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+                                 <columns>
+                                    <TableColumn fx:id="scheduleClass" prefWidth="75.0" text="Class" />
+                                    <TableColumn fx:id="scheduleSubject" prefWidth="89.71432495117188" text="Subject" />
+                                    <TableColumn fx:id="scheduleTeacher" prefWidth="134.8571014404297" text="Teacher" />
+                                    <TableColumn fx:id="scheduleDay" prefWidth="71.42860412597656" text="Day" />
+                                    <TableColumn fx:id="scheduleStart" prefWidth="98.0" text="Beginning" />
+                                    <TableColumn fx:id="scheduleEnd" prefWidth="105.0" text="End" />
+                                 </columns>
+                              </TableView>
+                              <TextField fx:id="tfSchedule" layoutX="25.0" layoutY="74.0" prefHeight="25.0" prefWidth="500.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Journal">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <TableView fx:id="tbJournal" editable="true" layoutX="24.0" layoutY="123.0" prefHeight="0.0" prefWidth="386.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+                                 <columns>
+                                    <TableColumn fx:id="jSubject" prefWidth="286.2856922149658" text="Subject" />
+                                    <TableColumn fx:id="jDate" prefWidth="124.5714111328125" sortable="false" text="Date" />
+                                    <TableColumn fx:id="jGrade" prefWidth="89.14291381835938" sortable="false" text="Grade" />
+                                 </columns>
+                              </TableView>
+                              <TextField fx:id="tfJournal" layoutX="24.0" layoutY="91.0" prefHeight="25.0" prefWidth="386.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

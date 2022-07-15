@@ -1,0 +1,45 @@
+
+.root{
+    -fx-background-color:
+            linear-gradient(#5F9EA0, #FFD700);
+    
+}
+.root2{
+    -fx-background-color:
+            linear-gradient(#5F9EA0, #008080);
+    
+}
+.stage{
+    -fx-border-style:none;
+       	
+}
+.buttonEdit { 
+    -fx-background-image: url('edit.png');
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+.buttonAdd { 
+    -fx-background-image: url('add.png');
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+.buttonDelete { 
+    -fx-background-image: url('delete.png');
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+.buttonCopy { 
+    -fx-background-image: url('copy.png');
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+.buttonRefresh { 
+    -fx-background-image: url('refresh.png');
+    -fx-background-size: 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
