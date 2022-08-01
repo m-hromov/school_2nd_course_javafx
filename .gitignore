@@ -1,3 +1,4 @@
 nbactions.txt
 nb-configuration.txt
 target
+.DS_STORE /src/main/resources/log
