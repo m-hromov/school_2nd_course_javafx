@@ -7,27 +7,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.scene.paint.Paint;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
 
-    private static Scene scene;
     public static Stage stage;
 
-    @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("authorization"));
-        stage.setScene(scene);
-        stage.show();
-        this.stage = stage;
-    }
-    
-
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/com/learning/school/" + fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
@@ -35,5 +24,13 @@ public class App extends Application {
         launch();
     }
 
-    
+    @Override
+    public void start(Stage stage) throws IOException {
+        Scene scene = new Scene(loadFXML("authorization"));
+        stage.setScene(scene);
+        stage.show();
+        App.stage = stage;
+    }
+
+
 }

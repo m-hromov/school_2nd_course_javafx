@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import org.controlsfx.control.SearchableComboBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="100.0" prefWidth="717.0" stylesheets="@../../../styles/menu.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.learning.school.AddJournalController">
+<AnchorPane id="AnchorPane" prefHeight="100.0" prefWidth="717.0" stylesheets="@../../../styles/menu.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.learning.school.controller.AddJournalController">
    <children>
       <HBox layoutX="10.0" layoutY="10.0" prefWidth="572.0" spacing="5.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
