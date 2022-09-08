@@ -1,6 +1,7 @@
 module com.learning.school {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.postgresql.jdbc;
     requires java.sql;
     requires java.base;
     requires org.controlsfx.controls;

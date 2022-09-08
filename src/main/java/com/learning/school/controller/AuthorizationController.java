@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.learning.school.App;
 import com.learning.school.dao.connection.DBProvider;
@@ -62,6 +64,7 @@ public class AuthorizationController implements Initializable {
 
             db.insertLog(new Log(null, user, "signed in", LocalTime.now(), LocalDate.now()));
         } catch (Exception ex) {
+            Logger.getLogger(DBProvider.class.getName()).log(Level.SEVERE, null, ex);
             labelAuthError.setText("login or password is incorrect");
         }
 

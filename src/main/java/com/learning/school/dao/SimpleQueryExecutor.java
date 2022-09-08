@@ -22,7 +22,7 @@ public class SimpleQueryExecutor<T> {
     }
 
     protected ObservableList<T> executeQuery(String query, Object... params){
-        ObservableList<T> list = FXCollections.emptyObservableList();
+        ObservableList<T> list = FXCollections.observableArrayList();
         try(PreparedStatement ps = prepareStatement(query,params)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
